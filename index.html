@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-Imersivo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Vigília de Samhain</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="shortcut icon" href="/img/logo_guardiao_samhain.ico" />
+  </head>
+
+  <div id="leaf-fall-container"></div>
+
+  <body>
+    <header>
+      <div class="header-content-samhain">
+        <h1 class="titulo-samhain">A VIGÍLIA DE SAMHAIN</h1>
+        <p class="subtitulo-samhain">
+          Proteja o véu na noite em que os mundos se encontram.
+        </p>
+      </div>
+    </header>
+
+    <main class="container" id="game-main-content" style="display: none">
+      <section class="game-area">
+        <div id="game-info">
+          <div id="score-container">Pontuação: <span id="score">0</span></div>
+          <div id="timer-container">
+            Tempo: <span id="timer-display">00:00</span>
+          </div>
+          <div id="health-container">
+            Luz do Fogo:
+            <div id="health-bar-wrapper"><div id="health-bar"></div></div>
+          </div>
+        </div>
+
+        <div id="game-container">
+          <div id="hearth"></div>
+          <div id="shield"></div>
+        </div>
+
+        <div class="bottom-button-group">
+          <button id="bonfire-button" disabled>Proteja a Fogueira!</button>
+          <button id="show-ranking-button-ingame" class="button-purple">
+            Ranking
+          </button>
+        </div>
+
+        <div id="game-over-screen" class="overlay-screen">
+          <div class="overlay-content">
+            <h2>VOCÊ MORREU!</h2>
+            <p>Seu corpo foi consumido pelas sombras.</p>
+            <p>Pontuação Final: <span id="final-score">0</span></p>
+            <p>Tempo de Vigília: <span id="final-time-lose">00:00</span></p>
+            <button id="restart-button" class="action-button">
+              Voltar ao Início
+            </button>
+          </div>
+        </div>
+
+        <div id="game-win-screen" class="overlay-screen">
+          <div class="overlay-content">
+            <h2>VIGÍLIA CUMPRIDA!</h2>
+            <p>Você protegeu a fogueira e manteve o véu íntegro.</p>
+            <p>Pontuação Final: <span id="final-score-win">0</span></p>
+            <p>Tempo de Vigília: <span id="final-time-win">00:00</span></p>
+            <button id="restart-button-win" class="action-button">
+              Voltar ao Início
+            </button>
+          </div>
+        </div>
+
+        <div id="super-challenge-overlay" class="overlay-screen">
+          <div class="overlay-content">
+            <h2>DESAFIO EXTRA!</h2>
+            <p>Você sobreviveu à vigília, mas o véu ainda está fino.</p>
+            <p class="challenge-description">
+              Seus desafios foram cumpridos, mas sua pontuação pode ser maior.
+            </p>
+            <p class="challenge-question">
+              Aceita o <span class="highlight-text">SUPER DESAFIO?</span>
+            </p>
+            <p class="challenge-goal">
+              Continue com seu placar atual e tente alcançar
+              <span class="highlight-text">15.000 Pontos!</span>
+            </p>
+            <div class="button-group">
+              <button id="accept-challenge-button" class="action-button accept">
+                ACEITAR
+              </button>
+              <button id="reject-challenge-button" class="action-button reject">
+                RECUSAR (VOLTAR AO INÍCIO)
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="explanation-area">
+        <h2>Desafios da Vigília</h2>
+
+        <div id="super-challenge-display" style="display: none">
+          <h2>SUPER DESAFIO</h2>
+          <p>Alcance 15.000 Pontos!</p>
+          <span id="super-challenge-score">(0/15000)</span>
+        </div>
+
+        <div id="challenge-panel">
+          <ul class="challenge-list">
+            <li id="challenge-1">
+              Banir 5 Coelhos Maus
+              <span id="counter-1" class="counter">(0/5)</span>
+            </li>
+            <li id="challenge-2">
+              Guiar 5 Doguinhos
+              <span id="counter-2" class="counter">(0/5)</span>
+            </li>
+            <li id="challenge-3">
+              Alcançar 2.500 Pontos
+              <span id="counter-3" class="counter">(0/2500)</span>
+            </li>
+            <li id="challenge-4">
+              Banir 20 Coelhos Maus
+              <span id="counter-4" class="counter">(0/20)</span>
+            </li>
+            <li id="challenge-5">
+              Alcançar 5.000 Pontos
+              <span id="counter-5" class="counter">(0/5000)</span>
+            </li>
+          </ul>
+        </div>
+
+        <h2>A História Verdadeira</h2>
+        <div class="media-controls">
+          <button id="play-history-button" class="audio-button play-pause-btn">
+            ►
+          </button>
+          <button id="speed-history-button" class="audio-button speed-btn">
+            1x
+          </button>
+        </div>
+
+        <div id="history-content">
+          <p>
+            Muito antes das abóboras e fantasias que conhecemos hoje, existia
+            uma celebração ancestral nas terras celtas que dava origem ao que
+            hoje chamamos de Halloween.
+          </p>
+
+          <h3>O Véu Tênue entre os Mundos</h3>
+          <p>
+            Para os antigos celtas, <strong>Samhain</strong> (pronuncia-se
+            "Sau-in") marcava o fim do verão e da colheita, e o início da parte
+            "escura" do ano, o inverno. Mas era mais do que uma mudança de
+            estações; era o Ano Novo Celta, uma época de renovação.
+          </p>
+          <p>
+            A crença central era que, na noite de 31 de outubro para 1º de
+            novembro,
+            <strong
+              >o véu que separa o nosso mundo do "Outro Mundo" (o reino dos
+              espíritos, fadas e ancestrais) ficava extraordinariamente
+              fino.</strong
+            >
+            Era um portal entre a vida e a morte, o passado e o futuro.
+          </p>
+
+          <h3>Espíritos e Magia</h3>
+          <p>
+            Nesta noite mágica, os espíritos dos mortos podiam retornar às suas
+            casas para visitar seus familiares. Fogueiras eram acesas não apenas
+            para afastar o frio do inverno que se aproximava, mas também para
+            guiar os espíritos bondosos e afastar as entidades malignas ou
+            travessas (os Fae).
+          </p>
+          <p>
+            As pessoas deixavam comida e bebida do lado de fora de suas casas
+            como oferendas para os espíritos ancestrais, honrando-os e pedindo
+            sua proteção. Máscaras e disfarces eram usados para enganar os
+            espíritos malévolos, fazendo-os pensar que eram um deles e não
+            humanos.
+          </p>
+
+          <h3>O Nascimento de Tradições</h3>
+          <p>
+            Muitas das tradições modernas do Halloween têm suas raízes no
+            Samhain:
+          </p>
+          <ul>
+            <li>
+              <strong>Fantasia:</strong> Deriva dos disfarces celtas para
+              enganar espíritos.
+            </li>
+            <li>
+              <strong>Doces ou Travessuras:</strong> Vem da prática de deixar
+              oferendas para espíritos (e, em algumas lendas, para as fadas,
+              para que não fizessem travessas).
+            </li>
+            <li>
+              <strong>Lanterna de Abóbora:</strong> Originalmente, eram nabos
+              esculpidos com velas dentro para afastar os maus espíritos. Quando
+              a tradição foi para a América, as abóboras se tornaram mais
+              populares.
+            </li>
+          </ul>
+          <p>
+            Samhain era uma noite de reflexão sobre a morte, celebração da vida
+            e conexão com o mundo espiritual, um lembrete de que a vida e a
+            morte são partes de um ciclo contínuo. Este jogo é uma homenagem a
+            essa rica e mística herança, transformando a Vigília de Samhain em
+            uma experiência interativa! Aqui, você será o guardião, usando uma
+            carta de magia celta para proteger a fogueira sagrada. Você
+            precisará guiar os doguinhos (espíritos bons) em segurança para a
+            fogueira e banir os coelhos (os Púcas, espíritos travessos) que
+            buscam extinguir sua chama.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <div id="how-to-play-screen" class="fullscreen-overlay">
+      <h2>Como Jogar: The Celtic Shield</h2>
+      <p class="instrucao-intro">
+        Seu objetivo é proteger a fogueira sagrada e completar os 5 desafios.
+      </p>
+
+      <ul class="instrucoes-lista">
+        <li>
+          <img
+            src="/img/escudo-celta.jpg"
+            alt="Escudo Celta / Carta Guardião Celta"
+            class="icon-help"
+          />
+          <span>
+            Você é o <strong>Guardião Celta</strong>, e sua ferramenta de
+            proteção é este escudo mágico (que se manifesta como uma carta
+            ancestral)!
+          </span>
+        </li>
+        <li>
+          <img src="/img/fogo.gif" alt="Fogueira Sagrada" class="icon-help" />
+          <span>
+            Seu objetivo é proteger a <strong>Fogueira Sagrada</strong>. Ela é a
+            sua vida!
+          </span>
+        </li>
+        <li>
+          <img
+            src="/img/coelho_mau.gif"
+            alt="Coelho Mau (Púca)"
+            class="icon-help"
+          />
+          <span>
+            Interceptar os <strong>Coelhos Maus (Púcas)</strong> com o Escudo.
+            Eles tentam apagar sua chama!
+          </span>
+        </li>
+        <li>
+          <img
+            src="/img/doguinho_fantasma.gif"
+            alt="Doguinho Bom"
+            class="icon-help"
+          />
+          <span>
+            <strong>NÃO</strong> bloqueie os <strong>Doguinhos Bons</strong>!
+            Deixe-os tocar a Fogueira para restaurar a Luz.
+          </span>
+        </li>
+        <li>
+          <span>Use o <strong>MOUSE</strong> para mover seu Escudo.</span>
+        </li>
+      </ul>
+      <strong class="warning-text">CUIDADO!</strong>
+      <p class="warning-subtext">
+        Se um Coelho Mau tocar a fogueira, você perde Luz.<br />Se sua Luz do
+        Fogo chegar a zero, você perde!
+      </p>
+
+      <button id="start-game-button">Começar a Vigília</button>
+      <button id="show-ranking-button" class="button-purple">Ranking</button>
+    </div>
+
+    <div
+      id="ranking-overlay-screen"
+      class="fullscreen-overlay"
+      style="display: none"
+    >
+      <h2>Ranking da Vigília</h2>
+      <p>Os 5 maiores Guardiões desta máquina</p>
+
+      <div class="ranking-container">
+        <table class="ranking-table">
+          <thead>
+            <tr>
+              <th>Pos.</th>
+              <th>Nome</th>
+              <th>Pontuação</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="ranking-table-body"></tbody>
+        </table>
+      </div>
+
+      <div class="button-group">
+        <button id="close-ranking-button" class="button-purple">Voltar</button>
+        <button id="clear-ranking-button" class="button-danger">
+          Limpar Tudo
+        </button>
+      </div>
+    </div>
+
+    <audio
+      id="snd-block-bad"
+      src="audio/som_bloqueio.mp3"
+      preload="auto"
+    ></audio>
+    <audio id="snd-block-good" src="audio/som_erro.mp3" preload="auto"></audio>
+    <audio id="snd-fire-good" src="audio/som_cura.wav" preload="auto"></audio>
+    <audio id="snd-fire-bad" src="audio/som_dano.mp3" preload="auto"></audio>
+
+    <audio
+      id="snd-fire-loop"
+      src="audio/som_fogo.mp3"
+      preload="auto"
+      loop
+    ></audio>
+
+    <audio id="snd-history" src="audio/narracao.mp3" preload="auto"></audio>
+
+    <audio
+      id="snd-theme"
+      src="audio/musica-tema.mp3"
+      preload="auto"
+      loop
+    ></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
